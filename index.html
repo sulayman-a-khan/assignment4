@@ -24,26 +24,49 @@
     </style> -->
     <title>Job Application Tracker</title>
   </head>
-  <body class="bg-slate-200 min-h-screen"></body>
-  <section class="main-section w-10/12 mx-auto">
-    <h1 class="text-2xl font-bold pt-6">
-    Job Application Tracker
-  </h1>
-  <!-- uporer main section 3ta div ekta div er moddhe -->
-   <div class="top-div flex justify-between py-6 border-b-1 border-gray-400">
-    <div class="total-count bg-white rounded p-4 w-[32%]">
-      <p class="text-[14px] font-medium">Total</p>
-      <h1 class="font-bold text-[20px]">0</h1>
-    </div>
-    <div class="interview bg-white rounded p-4 w-[32%]">
-      <p class="text-[14px] font-medium">Interview</p>
-      <h1 class="font-bold text-green-600 text-[20px]">0</h1>
-    </div>
-    <div class="rejected bg-white rounded p-4 w-[32%]">
-      <p class="text-[14px] font-medium">Rejected</p>
-      <h1 class="font-bold text-red-600 text-[20px]">0</h1>
-    </div>
-   </div>
-  </section>
-  
+  <body class="bg-slate-200 min-h-screen">
+    <section class="main-section w-10/12 mx-auto">
+      <h1 class="text-2xl font-bold pt-6">Job Application Tracker</h1>
+
+      <!-- uporer main section 3ta div ekta div er moddhe -->
+      <div
+        class="main-div flex justify-between py-6 border-b-1 border-gray-400"
+      >
+        <div class="total-count bg-white rounded p-4 w-[32%]">
+          <p class="text-[14px] font-medium">Total</p>
+          <h1 class="font-bold text-[20px]">0</h1>
+        </div>
+        <div class="interview bg-white rounded p-4 w-[32%]">
+          <p class="text-[14px] font-medium">Interview</p>
+          <h1 class="font-bold text-green-600 text-[20px]">0</h1>
+        </div>
+        <div class="rejected bg-white rounded p-4 w-[32%]">
+          <p class="text-[14px] font-medium">Rejected</p>
+          <h1 class="font-bold text-red-600 text-[20px]">0</h1>
+        </div>
+      </div>
+
+      <!-- job section er header -->
+      <div class="main-div flex justify-between items-center py-3">
+        <div class="job-side">
+          <h1 class="font-semibold">Available Jobs</h1>
+        </div>
+        <div class="job-count-side">
+          <p class="text-[12px]">0 jobs</p>
+        </div>
+      </div>
+
+      <!-- 3 tab buttons -->
+      <div class="main-div flex gap-2 justify-start py-3">
+        <button class="btn btn-soft btn-primary">All</button>
+        <button class="btn btn-soft btn-primary">Interview</button>
+        <button class="btn btn-soft btn-primary">Rejected</button>
+      </div>
+
+      <!-- job card ekhan theke start -->
+      <div id="cardContainer" class=""></div>
+    </section>
+
+    <script src="/script.js"></script>
+  </body>
 </html>
