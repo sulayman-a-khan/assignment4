@@ -34,15 +34,15 @@
       >
         <div class="total-count bg-white rounded p-4 w-[32%]">
           <p class="text-[14px] font-medium">Total</p>
-          <h1 class="font-bold text-[20px]">0</h1>
+          <h1 id="totalCount" class="font-bold text-[20px]">0</h1>
         </div>
         <div class="interview bg-white rounded p-4 w-[32%]">
           <p class="text-[14px] font-medium">Interview</p>
-          <h1 class="font-bold text-green-600 text-[20px]">0</h1>
+          <h1 id="interviewCount" class="font-bold text-green-600 text-[20px]">0</h1>
         </div>
         <div class="rejected bg-white rounded p-4 w-[32%]">
           <p class="text-[14px] font-medium">Rejected</p>
-          <h1 class="font-bold text-red-600 text-[20px]">0</h1>
+          <h1 id="rejectedCount" class="font-bold text-red-600 text-[20px]">0</h1>
         </div>
       </div>
 
@@ -52,19 +52,27 @@
           <h1 class="font-semibold">Available Jobs</h1>
         </div>
         <div class="job-count-side">
-          <p class="text-[12px]">0 jobs</p>
+          <p id="sectionCount" class="text-[12px]">0 jobs</p>
         </div>
       </div>
 
       <!-- 3 tab buttons -->
       <div class="main-div flex gap-2 justify-start py-3">
-        <button class="btn btn-soft btn-primary">All</button>
-        <button class="btn btn-soft btn-primary">Interview</button>
-        <button class="btn btn-soft btn-primary">Rejected</button>
+        <button id="allTab" class="btn btn-soft btn-primary">All</button>
+        <button id="interviewTab" class="btn btn-soft btn-primary">Interview</button>
+        <button id="rejectedTab" class="btn btn-soft btn-primary">Rejected</button>
       </div>
 
       <!-- job card ekhan theke start -->
-      <div id="cardContainer" class=""></div>
+      <div id="cardsContainer" class=""></div>
+
+      <!-- no job thakle ekhane dekhabe -->
+
+      <div id="noJobs" class="flex flex-col justify-center items-center bg-white py-20 rounded">
+        <img class="mb-4" src="/jobs.png" alt="">
+        <h1 class="font-semibold">No jobs available</h1>
+        <p class="text-[10px] text-gray-500">Check back soon for new job oppertunities</p>
+      </div>
     </section>
 
     <script src="/script.js"></script>
