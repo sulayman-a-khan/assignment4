@@ -157,7 +157,8 @@ function createCardHTML(job, statusType) {
            '<p class="details text-[11px] text-gray-400 mb-4 uppercase tracking-wider">' + job.details + '</p>' +
            '<span class="status inline-block text-[10px] font-bold px-3 py-1 rounded-md mb-4 ' + statusClass + '">' + statusType + '</span>' +
            '<p class="notes text-[13px] text-gray-500 leading-relaxed mb-6">' + job.notes + '</p>' +
-           '<div class="flex gap-3">' +
+           // ✨ Responsive button container
+           '<div class="flex flex-col md:flex-row gap-2 md:gap-3">' +
            '<button class="interview-btn border border-green-500 text-green-600 text-[10px] font-bold px-3 py-1.5 rounded">INTERVIEW</button>' +
            '<button class="rejected-btn border border-red-300 text-red-400 text-[10px] font-bold px-3 py-1.5 rounded">REJECTED</button>' +
            '</div>' +
