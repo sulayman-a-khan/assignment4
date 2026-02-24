@@ -1,149 +1,80 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Daisyui + Tailwidncss CDN Code -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <!-- <link
-      href="https://cdn.jsdelivr.net/npm/daisyui@5"
-      rel="stylesheet"
-      type="text/css"
-    /> -->
-    <!-- Geist font added here -->
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      body {
-        font-family: "Geist", 'Times New Roman', Times, serif;
-      }
-    </style> -->
     <title>Job Application Tracker</title>
+    <style>
+      body { font-family: "Inter", sans-serif; }
+      .card-shadow { box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); }
+    </style>
   </head>
-  <body class="bg-slate-200 min-h-screen">
-    <!-- main container -->
-    <section class="main-container w-10/12 mx-auto">
-      <h1 class="text-2xl font-bold pt-6">Job Application Tracker</h1>
+  <body class="bg-[#F8FAFC] min-h-screen pb-20">
+    <section class="main-container w-11/12 md:w-8/12 mx-auto">
+      <h1 class="text-[#0F172A] text-2xl font-bold pt-10 pb-6">Job Application Tracker</h1>
 
-      <!-- uporer main section 3ta count box ekta div er moddhe -->
-      <div class="main-div flex justify-between py-6 border-b-1 border-gray-400">
-        <!-- total count box -->
-        <div class="total-count bg-white rounded p-4 w-[32%]">
-          <p class="text-[14px] font-medium">Total</p>
-          <h1 id="totalCount" class="font-bold text-[20px]">0</h1>
+      <div class="main-div flex justify-between gap-4 mb-10">
+        <div class="bg-white rounded-lg p-5 w-1/3 card-shadow border border-gray-100">
+          <p class="text-[13px] font-semibold text-gray-500 mb-1">Total</p>
+          <h1 id="totalCount" class="font-bold text-2xl text-[#0F172A]">8</h1>
         </div>
-        <!-- interview count box -->
-        <div class="interview bg-white rounded p-4 w-[32%]">
-          <p class="text-[14px] font-medium">Interview</p>
-          <h1 id="interviewCount" class="font-bold text-green-600 text-[20px]">
-            0
-          </h1>
+        <div class="bg-white rounded-lg p-5 w-1/3 card-shadow border border-gray-100">
+          <p class="text-[13px] font-semibold text-gray-400 mb-1">Interview</p>
+          <h1 id="interviewCount" class="font-bold text-2xl text-green-600">0</h1>
         </div>
-        <!-- rejected count box -->
-        <div class="rejected bg-white rounded p-4 w-[32%]">
-          <p class="text-[14px] font-medium">Rejected</p>
-          <h1 id="rejectedCount" class="font-bold text-red-600 text-[20px]">
-            0
-          </h1>
+        <div class="bg-white rounded-lg p-5 w-1/3 card-shadow border border-gray-100">
+          <p class="text-[13px] font-semibold text-gray-400 mb-1">Rejected</p>
+          <h1 id="rejectedCount" class="font-bold text-2xl text-red-500">0</h1>
         </div>
       </div>
 
-      <!-- job section er header -->
-      <div class="main-div flex justify-between items-center py-3">
-        <div class="job-side">
-          <h1 class="font-semibold">Available Jobs</h1>
-        </div>
-        <!-- section count side -->
-        <div class="job-count-side">
-          <p id="sectionCount" class="text-[12px]">0 jobs</p>
-        </div>
+      <div class="flex justify-between items-start mb-5">
+        <h2 class="font-bold text-lg text-[#1E293B]">Available Jobs</h2>
+        <p id="sectionCount" class="text-xs font-medium text-gray-400">8 jobs</p>
       </div>
 
-      <!-- 3 tab buttons -->
-      <div class="main-div flex gap-2 justify-start py-4">
-        <button onclick="toggleStyle('allTab')" id="allTab" class="bg-black text-white px-5 py-2 rounded">All</button>
-        <button onclick="toggleStyle('interviewTab')" id="interviewTab" class="bg-white px-5 py-2 rounded">Interview</button>
-        <button onclick="toggleStyle('rejectedTab')" id="rejectedTab" class="bg-white px-5 py-2 rounded">Rejected</button>
+      <div class="flex gap-2 mb-8">
+        <button onclick="toggleStyle('allTab')" id="allTab" class="bg-black text-white text-[12px] px-4 py-1.5 rounded-md font-medium border border-gray-200">All</button>
+        <button onclick="toggleStyle('interviewTab')" id="interviewTab" class="bg-white text-black text-[12px] px-4 py-1.5 rounded-md border border-gray-200 font-medium">Interview</button>
+        <button onclick="toggleStyle('rejectedTab')" id="rejectedTab" class="bg-white text-black text-[12px] px-4 py-1.5 rounded-md border border-gray-200 font-medium">Rejected</button>
       </div>
 
-      <!-- Filtered card -->
-       <section id="filtered-section" class="hidden">
+      <section id="filtered-section" class="hidden space-y-4"></section>
 
-       </section>
-      
-      <section id="allCard">
-         <!-- card 1 -->
-          <div class="card flex justify-between bg-white rounded p-5 mb-4">
-            <!-- card er left side -->
-            <div>
-              <!-- text information -->
-              <h1 class="company">Mobile First Corporation</h1>
-              <p class="position">React Native Developer</p>
-              <p class="detais py-6">Remote - Full Time - $130.00-$175.00</p>
-              <p class="status">Not Applied</p>
-              <p class="notes pb-6">Build Cross Platform Mobile Application Using React Native</p>
-              <!-- interview & rejected button -->
-               <div class="flex gap-5">
-                <button class="interview-btn border border-green-500 rounded text-green-500 px-4 py-2">Interview</button>
-                <button class="rejected-btn border border-red-500 rounded text-red-500 px-4 py-2">Rejected</button>
-               </div>
-            </div>
-            <!-- card er right side -->
-            <div>
-              <button class="delete-btn">🗑️</button>
+      <section id="allCard" class="space-y-4">
+        <div class="card bg-white rounded-lg p-6 border border-gray-100 card-shadow relative flex justify-between">
+          <div class="w-full">
+            <h1 class="company font-bold text-[#1E293B] text-lg">Mobile First Corp</h1>
+            <p class="position text-gray-500 text-sm font-medium mb-2">React Native Developer</p>
+            <p class="detais text-[11px] text-gray-400 mb-4 uppercase tracking-wider">Remote • Full-time • $130k - $175k</p>
+            <span class="status inline-block text-[10px] font-bold px-3 py-1 rounded-md mb-4 bg-[#EFF6FF] text-[#3B82F6]">NOT APPLIED</span>
+            <p class="notes text-[13px] text-gray-500 leading-relaxed mb-6">Build cross-platform mobile applications using React Native.</p>
+            <div class="flex gap-3">
+              <button class="interview-btn border border-green-500 text-green-600 text-[10px] font-bold px-3 py-1.5 rounded">INTERVIEW</button>
+              <button class="rejected-btn border border-red-300 text-red-400 text-[10px] font-bold px-3 py-1.5 rounded">REJECTED</button>
             </div>
           </div>
+          <button class="delete-btn text-xl h-fit text-gray-300">🗑️</button>
+        </div>
 
-          <!-- card 2 -->
-          <div class="card flex justify-between bg-white rounded p-5 mb-4">
-            <!-- card er left side -->
-            <div>
-              <!-- text information -->
-              <h1 class="company">Mobile First Corporation</h1>
-              <p class="position">React Native Developer</p>
-              <p class="detais py-6">Remote - Full Time - $130.00-$175.00</p>
-              <p class="status">Not Applied</p>
-              <p class="notes pb-6">Build Cross Platform Mobile Application Using React Native</p>
-              <!-- interview & rejected button -->
-               <div class="flex gap-5">
-                <button class="interview-btn border border-green-500 rounded text-green-500 px-4 py-2">Interview</button>
-                <button class="rejected-btn border border-red-500 rounded text-red-500 px-4 py-2">Rejected</button>
-               </div>
+        <div class="card bg-white rounded-lg p-6 border border-gray-100 card-shadow relative flex justify-between">
+            <div class="w-full">
+              <h1 class="company font-bold text-[#1E293B] text-lg">WebFlow Agency</h1>
+              <p class="position text-gray-500 text-sm font-medium mb-2">Web Designer</p>
+              <p class="detais text-[11px] text-gray-400 mb-4 uppercase tracking-wider">Los Angeles, CA • Part-time</p>
+              <span class="status inline-block text-[10px] font-bold px-3 py-1 rounded-md mb-4 bg-[#EFF6FF] text-[#3B82F6]">NOT APPLIED</span>
+              <p class="notes text-[13px] text-gray-500 leading-relaxed mb-6">Create stunning web experiences for high-profile clients.</p>
+              <div class="flex gap-3">
+                <button class="interview-btn border border-green-500 text-green-600 text-[10px] font-bold px-3 py-1.5 rounded">INTERVIEW</button>
+                <button class="rejected-btn border border-red-300 text-red-400 text-[10px] font-bold px-3 py-1.5 rounded">REJECTED</button>
+              </div>
             </div>
-            <!-- card er right side -->
-            <div>
-              <button class="delete-btn">🗑️</button>
-            </div>
-          </div>
+            <button class="delete-btn text-xl h-fit text-gray-300">🗑️</button>
+        </div>
+        </section>
+    </section>
 
-          <!-- card 3 -->
-          <div class="card flex justify-between bg-white rounded p-5 mb-4">
-            <!-- card er left side -->
-            <div>
-              <!-- text information -->
-              <h1 class="company">Mobile First Corporation</h1>
-              <p class="position">React Native Developer</p>
-              <p class="detais py-6">Remote - Full Time - $130.00-$175.00</p>
-              <p class="status">Not Applied</p>
-              <p class="notes pb-6">Build Cross Platform Mobile Application Using React Native</p>
-              <!-- interview & rejected button -->
-               <div class="flex gap-5">
-                <button class="interview-btn border border-green-500 rounded text-green-500 px-4 py-2">Interview</button>
-                <button class="rejected-btn border border-red-500 rounded text-red-500 px-4 py-2">Rejected</button>
-               </div>
-            </div>
-            <!-- card er right side -->
-            <div>
-              <button class="delete-btn">🗑️</button>
-            </div>
-          </div>
-      </section>
-      <script src="/script.js"></script>
-      </body>
+    <script src="script.js"></script>
+  </body>
 </html>
-
-     
