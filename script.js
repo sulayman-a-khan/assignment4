@@ -1,9 +1,9 @@
-// ================= LISTS =================
+
 let interviewList = [];
 let rejectedList = [];
 let currentTab = 'allTab';
 
-// ================= DOM =================
+
 const totalCount = document.getElementById("totalCount");
 const interviewCount = document.getElementById("interviewCount");
 const rejectedCount = document.getElementById("rejectedCount");
@@ -18,7 +18,7 @@ const rejectedFilterBtn = document.getElementById("rejectedTab");
 
 const filterSection = document.getElementById("filtered-section");
 
-// ================= COUNT =================
+
 function calculateCount() {
     let allJobsCount = allCard.children.length;
     totalCount.innerText = allJobsCount;
@@ -37,11 +37,11 @@ function calculateCount() {
 }
 calculateCount();
 
-// ================= TAB TOGGLE =================
+
 function toggleStyle(id) {
     currentTab = id;
 
-    // Reset buttons
+   
     allFilterBtn.classList.remove('bg-black', 'text-white');
     interviewFilterBtn.classList.remove('bg-black', 'text-white');
     rejectedFilterBtn.classList.remove('bg-black', 'text-white');
@@ -50,7 +50,7 @@ function toggleStyle(id) {
     interviewFilterBtn.classList.add('bg-white', 'text-black');
     rejectedFilterBtn.classList.add('bg-white', 'text-black');
 
-    // Active button
+  
     const selectedBtn = document.getElementById(id);
     selectedBtn.classList.remove('bg-white', 'text-black');
     selectedBtn.classList.add('bg-black', 'text-white');
@@ -67,7 +67,7 @@ function toggleStyle(id) {
     calculateCount();
 }
 
-// ================= MAIN CLICK EVENT =================
+
 mainContainer.addEventListener("click", function (event) {
     const isInterview = event.target.classList.contains("interview-btn");
     const isRejected = event.target.classList.contains("rejected-btn");
@@ -83,7 +83,7 @@ mainContainer.addEventListener("click", function (event) {
             notes: card.querySelector(".notes").innerText
         };
 
-        // অরিজিনাল কার্ড খুঁজে বের করা
+       
         let originalCard;
         const allMainCards = allCard.querySelectorAll(".card");
         for (let c of allMainCards) {
@@ -93,7 +93,7 @@ mainContainer.addEventListener("click", function (event) {
             }
         }
 
-        // ইন্টারভিউ লজিক
+       
         if (isInterview) {
             const statusEl = originalCard.querySelector(".status");
             if (statusEl.innerText == "INTERVIEW") {
@@ -111,7 +111,7 @@ mainContainer.addEventListener("click", function (event) {
             }
         }
 
-        // রিজেক্টেড লজিক
+       
         if (isRejected) {
             const statusEl = originalCard.querySelector(".status");
             if (statusEl.innerText == "REJECTED") {
@@ -129,7 +129,7 @@ mainContainer.addEventListener("click", function (event) {
             }
         }
 
-        // ডিলিট লজিক
+        
         if (isDelete) {
             interviewList = interviewList.filter(item => item.company != job.company);
             rejectedList = rejectedList.filter(item => item.company != job.company);
@@ -142,7 +142,7 @@ mainContainer.addEventListener("click", function (event) {
     }
 });
 
-// ================= RENDER HELPERS =================
+
 function createCardHTML(job, statusType) {
     let statusClass = "";
     if (statusType === 'INTERVIEW') {
@@ -157,7 +157,7 @@ function createCardHTML(job, statusType) {
            '<p class="details text-[11px] text-gray-400 mb-4 uppercase tracking-wider">' + job.details + '</p>' +
            '<span class="status inline-block text-[10px] font-bold px-3 py-1 rounded-md mb-4 ' + statusClass + '">' + statusType + '</span>' +
            '<p class="notes text-[13px] text-gray-500 leading-relaxed mb-6">' + job.notes + '</p>' +
-           // ✨ Responsive button container
+          
            '<div class="flex flex-col md:flex-row gap-2 md:gap-3">' +
            '<button class="interview-btn border border-green-500 text-green-600 text-[10px] font-bold px-3 py-1.5 rounded">INTERVIEW</button>' +
            '<button class="rejected-btn border border-red-300 text-red-400 text-[10px] font-bold px-3 py-1.5 rounded">REJECTED</button>' +
