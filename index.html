@@ -25,7 +25,8 @@
     <title>Job Application Tracker</title>
   </head>
   <body class="bg-slate-200 min-h-screen">
-    <section class="main-section w-10/12 mx-auto">
+    <!-- main container -->
+    <section class="main-container w-10/12 mx-auto">
       <h1 class="text-2xl font-bold pt-6">Job Application Tracker</h1>
 
       <!-- uporer main section 3ta count box ekta div er moddhe -->
@@ -64,9 +65,9 @@
 
       <!-- 3 tab buttons -->
       <div class="main-div flex gap-2 justify-start py-4">
-        <button id="allTab" class="bg-black text-white px-5 py-2 rounded">All</button>
-        <button id="interviewTab" class="bg-white px-5 py-2 rounded">Interview</button>
-        <button id="rejectedTab" class="bg-white px-5 py-2 rounded">Rejected</button>
+        <button onclick="toggleStyle('allTab')" id="allTab" class="bg-black text-white px-5 py-2 rounded">All</button>
+        <button onclick="toggleStyle('interviewTab')" id="interviewTab" class="bg-white px-5 py-2 rounded">Interview</button>
+        <button onclick="toggleStyle('rejectedTab')" id="rejectedTab" class="bg-white px-5 py-2 rounded">Rejected</button>
       </div>
 
       
@@ -138,6 +139,7 @@
             </div>
           </div>
       </section>
+      <script src="/script.js"></script>
       </body>
 </html>
 
