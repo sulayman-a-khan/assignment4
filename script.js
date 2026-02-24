@@ -191,7 +191,7 @@ function renderRejected() {
 function showNoJobs() {
     filterSection.innerHTML = 
         '<div class="flex flex-col items-center py-20 bg-white rounded-lg shadow-sm border border-dashed border-gray-200">' +
-        '<img src="/jobs.png" class="mb-4">' +
+        '<img src="./jobs.png" class="mb-4">' +
         '<h1 class="font-semibold text-gray-600">No jobs available</h1>' +
         '<p class="text-sm text-gray-400">Check back soon for new opportunities</p>' +
         '</div>';
