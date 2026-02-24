@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Daisyui + Tailwidncss CDN Code -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link
+    <!-- <link
       href="https://cdn.jsdelivr.net/npm/daisyui@5"
       rel="stylesheet"
       type="text/css"
-    />
+    /> -->
     <!-- Geist font added here -->
     <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -28,21 +28,26 @@
     <section class="main-section w-10/12 mx-auto">
       <h1 class="text-2xl font-bold pt-6">Job Application Tracker</h1>
 
-      <!-- uporer main section 3ta div ekta div er moddhe -->
-      <div
-        class="main-div flex justify-between py-6 border-b-1 border-gray-400"
-      >
+      <!-- uporer main section 3ta count box ekta div er moddhe -->
+      <div class="main-div flex justify-between py-6 border-b-1 border-gray-400">
+        <!-- total count box -->
         <div class="total-count bg-white rounded p-4 w-[32%]">
           <p class="text-[14px] font-medium">Total</p>
           <h1 id="totalCount" class="font-bold text-[20px]">0</h1>
         </div>
+        <!-- interview count box -->
         <div class="interview bg-white rounded p-4 w-[32%]">
           <p class="text-[14px] font-medium">Interview</p>
-          <h1 id="interviewCount" class="font-bold text-green-600 text-[20px]">0</h1>
+          <h1 id="interviewCount" class="font-bold text-green-600 text-[20px]">
+            0
+          </h1>
         </div>
+        <!-- rejected count box -->
         <div class="rejected bg-white rounded p-4 w-[32%]">
           <p class="text-[14px] font-medium">Rejected</p>
-          <h1 id="rejectedCount" class="font-bold text-red-600 text-[20px]">0</h1>
+          <h1 id="rejectedCount" class="font-bold text-red-600 text-[20px]">
+            0
+          </h1>
         </div>
       </div>
 
@@ -51,30 +56,89 @@
         <div class="job-side">
           <h1 class="font-semibold">Available Jobs</h1>
         </div>
+        <!-- section count side -->
         <div class="job-count-side">
           <p id="sectionCount" class="text-[12px]">0 jobs</p>
         </div>
       </div>
 
       <!-- 3 tab buttons -->
-      <div class="main-div flex gap-2 justify-start py-3">
-        <button id="allTab" class="btn btn-soft btn-primary">All</button>
-        <button id="interviewTab" class="btn btn-soft btn-primary">Interview</button>
-        <button id="rejectedTab" class="btn btn-soft btn-primary">Rejected</button>
+      <div class="main-div flex gap-2 justify-start py-4">
+        <button id="allTab" class="bg-black text-white px-5 py-2 rounded">All</button>
+        <button id="interviewTab" class="bg-white px-5 py-2 rounded">Interview</button>
+        <button id="rejectedTab" class="bg-white px-5 py-2 rounded">Rejected</button>
       </div>
 
-      <!-- job card ekhan theke start -->
-      <div id="cardsContainer" class=""></div>
+      
+      
+      <section id="allCard">
+         <!-- card 1 -->
+          <div class="card flex justify-between bg-white rounded p-5 mb-4">
+            <!-- card er left side -->
+            <div>
+              <!-- text information -->
+              <h1 class="company">Mobile First Corporation</h1>
+              <p class="position">React Native Developer</p>
+              <p class="detais py-6">Remote - Full Time - $130.00-$175.00</p>
+              <p class="status">Not Applied</p>
+              <p class="notes pb-6">Build Cross Platform Mobile Application Using React Native</p>
+              <!-- interview & rejected button -->
+               <div class="flex gap-5">
+                <button class="interview-btn border border-green-500 rounded text-green-500 px-4 py-2">Interview</button>
+                <button class="rejected-btn border border-red-500 rounded text-red-500 px-4 py-2">Rejected</button>
+               </div>
+            </div>
+            <!-- card er right side -->
+            <div>
+              <button class="delete-btn">🗑️</button>
+            </div>
+          </div>
 
-      <!-- no job thakle ekhane dekhabe -->
+          <!-- card 2 -->
+          <div class="card flex justify-between bg-white rounded p-5 mb-4">
+            <!-- card er left side -->
+            <div>
+              <!-- text information -->
+              <h1 class="company">Mobile First Corporation</h1>
+              <p class="position">React Native Developer</p>
+              <p class="detais py-6">Remote - Full Time - $130.00-$175.00</p>
+              <p class="status">Not Applied</p>
+              <p class="notes pb-6">Build Cross Platform Mobile Application Using React Native</p>
+              <!-- interview & rejected button -->
+               <div class="flex gap-5">
+                <button class="interview-btn border border-green-500 rounded text-green-500 px-4 py-2">Interview</button>
+                <button class="rejected-btn border border-red-500 rounded text-red-500 px-4 py-2">Rejected</button>
+               </div>
+            </div>
+            <!-- card er right side -->
+            <div>
+              <button class="delete-btn">🗑️</button>
+            </div>
+          </div>
 
-      <div id="noJobs" class="flex flex-col justify-center items-center bg-white py-20 rounded">
-        <img class="mb-4" src="/jobs.png" alt="">
-        <h1 class="font-semibold">No jobs available</h1>
-        <p class="text-[10px] text-gray-500">Check back soon for new job oppertunities</p>
-      </div>
-    </section>
-
-    <script src="/script.js"></script>
-  </body>
+          <!-- card 3 -->
+          <div class="card flex justify-between bg-white rounded p-5 mb-4">
+            <!-- card er left side -->
+            <div>
+              <!-- text information -->
+              <h1 class="company">Mobile First Corporation</h1>
+              <p class="position">React Native Developer</p>
+              <p class="detais py-6">Remote - Full Time - $130.00-$175.00</p>
+              <p class="status">Not Applied</p>
+              <p class="notes pb-6">Build Cross Platform Mobile Application Using React Native</p>
+              <!-- interview & rejected button -->
+               <div class="flex gap-5">
+                <button class="interview-btn border border-green-500 rounded text-green-500 px-4 py-2">Interview</button>
+                <button class="rejected-btn border border-red-500 rounded text-red-500 px-4 py-2">Rejected</button>
+               </div>
+            </div>
+            <!-- card er right side -->
+            <div>
+              <button class="delete-btn">🗑️</button>
+            </div>
+          </div>
+      </section>
+      </body>
 </html>
+
+     
